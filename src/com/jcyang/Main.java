@@ -138,29 +138,59 @@ ArrayList<Student> studentList = new ArrayList<Student>();
 
 
             /****"Find courses taken by student: "****/
-if (choice.equalsIgnoreCase("u")) {
-    System.out.println("Enter first name to search: ");
-    searchQuery = keyboard.nextLine();
-    boolean foundResult = false;
+                if (choice.equalsIgnoreCase("u")) {
+                    System.out.println("Enter first name to search: ");
+                    searchQuery = keyboard.nextLine();
+                    boolean foundResult = false;
 
 
-    for (Student entry : studentList) {
-        if (entry.getFirstName().equalsIgnoreCase(searchQuery)) {
-            System.out.print(entry.getFirstName());
-            System.out.print(" ");
-            System.out.print(entry.getLastName());
-            System.out.println();
-            for (Course c : entry.getCoursesTaken()) {
-                System.out.println(c.getName());
+                    for (Student entry : studentList) {
+                        if (entry.getFirstName().equalsIgnoreCase(searchQuery)) {
+                            System.out.print(entry.getFirstName());
+                            System.out.print(" ");
+                            System.out.print(entry.getLastName());
+                            System.out.println();
+                            for (Course c : entry.getCoursesTaken()) {
+                                System.out.println(c.getName());
+                            }
+                            foundResult = true;
+                        }
+
+                    }
+                    if (foundResult == false) {
+                        System.out.println("No results matching search");
+                    }
+                }
+
+
+
+            /*******"Find courses taken by student "*****/
+
+
+            /****"Find courses taught by teacher: "****/
+            if (choice.equalsIgnoreCase("a")) {
+                System.out.println("Enter first name to search: ");
+                searchQuery = keyboard.nextLine();
+                boolean foundResult = false;
+
+
+                for (Teacher entry : teacherList) {
+                    if (entry.getFirstName().equalsIgnoreCase(searchQuery)) {
+                        System.out.print(entry.getFirstName());
+                        System.out.print(" ");
+                        System.out.print(entry.getLastName());
+                        System.out.println();
+                        for (Course c : entry.getCoursesTaught()) {
+                            System.out.println(c.getName());
+                        }
+                        foundResult = true;
+                    }
+
+                }
+                if (foundResult == false) {
+                    System.out.println("No results matching search");
+                }
             }
-            foundResult = true;
-        }
-
-    }
-    if (foundResult == false) {
-        System.out.println("No results matching search");
-    }
-}
 
 
 
